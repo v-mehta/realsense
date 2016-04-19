@@ -1,0 +1,22 @@
+<launch>
+  <arg name="serial_1" default="2211014466" />
+  <arg name="serial_2" default="2211003251" />
+  
+  <group ns="front_camera">
+    <include file="$(find realsense_camera)/launch/realsense_test_standalone.launch" >
+      <arg name="serial_no" value="$(arg serial_1)" />
+      <arg name="enable_color" value="false"/>
+      <arg name="depth_fps" value="30" />
+    </include>
+  </group>
+
+   
+  <group ns="rear_camera">
+    <include file="$(find realsense_camera)/launch/realsense_test_standalone.launch" >
+      <arg name="serial_no" value="$(arg serial_2)" />
+      <arg name="enable_color" value="false" />   
+      <arg name="depth_fps" value="30" />
+    </include>
+  </group>
+   
+ </launch>  
